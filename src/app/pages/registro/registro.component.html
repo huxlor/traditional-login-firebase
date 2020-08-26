@@ -1,7 +1,7 @@
 <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-t-50 p-b-90">
-                <form (ngSubmit)="onSubmit()" class="login100-form validate-form flex-sb flex-w">
+                <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="login100-form validate-form flex-sb flex-w">
 
                     <span class="login100-form-title p-b-51">
                         Crear nueva cuenta
@@ -10,10 +10,12 @@
                     <!-- <span class="text-danger">El correo es obligatorio</span> -->
                     <div class="wrap-input100 m-b-16">
                         <input class="input100"
-                               type="text"
+                               type="email"
                                name="email"
                                [(ngModel)]="usuario.email"
-                               placeholder="Email">
+                               placeholder="Email"
+                               required
+                               email>
 
                         <span class="focus-input100"></span>
                     </div>
@@ -24,7 +26,9 @@
                                type="text"
                                name="nombre"
                                [(ngModel)]="usuario.nombre"
-                               placeholder="Nombre y apellidos">
+                               placeholder="Nombre y apellidos"
+                               required
+                               minlength="2">
 
                         <span class="focus-input100"></span>
                     </div>
@@ -33,9 +37,11 @@
                     <div class="wrap-input100 m-b-16" data-validate = "Password is required">
                         <input class="input100"
                                type="password"
-                               name="pass"
+                               name="password"
                                [(ngModel)]="usuario.password"
-                               placeholder="Password">
+                               placeholder="Password"
+                               required
+                               minlength="6">
                         <span class="focus-input100"></span>
                     </div>
 
